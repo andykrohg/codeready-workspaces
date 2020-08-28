@@ -1,0 +1,24 @@
+apiVersion: v2
+publisher: redhat-developer
+name: vscode-tekton
+version: 0.4.0
+type: VS Code extension
+displayName: Tekton Pipelines
+title: Tekton Pipelines
+description: Tekton Pipelines VS Code extension by Red Hat
+icon: https://github.com/redhat-developer/vscode-tekton/raw/master/images/tekton.svg
+repository: https://github.com/redhat-developer/vscode-tekton
+category: Other
+firstPublicationDate: "2020-01-05"
+spec:
+  containers:
+    - image: "quay.io/akrohg/vscode-tekton-container:latest"
+      name: "tekton-vscode"
+      memoryLimit: "1G"
+      args:
+        - sh
+        - -c
+        - ${PLUGIN_REMOTE_ENDPOINT_EXECUTABLE}
+  extensions:
+    - https://github.com/redhat-developer/vscode-tekton/releases/download/v0.4.0/tekton-pipelines-0.4.0-336.vsix
+    - https://download.jboss.org/jbosstools/vscode/3rdparty/vscode-yaml/vscode-yaml-0.8.0.vsix
